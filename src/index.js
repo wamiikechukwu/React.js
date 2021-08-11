@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom"
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const UserProfileDetails = {
+    userImage: "https://www.netlify.com/v3/img/build/dba5652e-164.webp",
+    userName: "Adam Lee",
+    userTitle: "Director"
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const UserProfile = () => {
+    return (
+        <div>
+            <UserProfilePicture image={UserProfileDetails.userImage}/>
+            <UserProfileName name={UserProfileDetails.userName}/>
+            <UserProfileTitle title={UserProfileDetails.userTitle}/>
+        </div>
+    )
+}
+
+const UserProfilePicture = (props) => <img src={props.image}
+                                           alt={props.name}/>
+const UserProfileName = (props) => <h1>{props.name}</h1>
+
+const UserProfileTitle = (props) => <h1>{props.title}</h1>
+
+ReactDOM.render(<UserProfile/>, document.getElementById("root"));
+
